@@ -1,4 +1,5 @@
 import "./style.css";
+import { DisplayMessage } from "./components/display.js";
 
 const student_data = [
   {
@@ -20,3 +21,20 @@ document.querySelector("#app").innerHTML = `
     Hello Vite!
   </h1>
 `;
+const button = document.createElement("button");
+button.textContent = "Pick a Random Student";
+button.className =
+  "mt-4 px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600";
+button.addEventListener("click", () => {
+  const randomIndex = Math.floor(Math.random() * student_data.length);
+  const selectedStudent = student_data[randomIndex];
+  const messageHTML = DisplayMessage({ message: `Selected Student: ${selectedStudent.name}` });
+  const messageContainer = document.getElementById("message-container");
+  messageContainer.innerHTML = messageHTML;
+});
+document.body.appendChild(button);
+
+const messageContainer = document.createElement("div");
+messageContainer.id = "message-container";
+messageContainer.className = "mt-4";
+document.body.appendChild(messageContainer);
