@@ -3,15 +3,12 @@ import { DisplayMessage } from "./components/display.js";
 
 const student_data = [
   {
-    id: 0,
     name: "Andrew"
   },
   {
-    id: 1,
     name: "John"
   },
   {
-    id: 2,
     name: "Alice"
   }
 ];
@@ -24,8 +21,7 @@ document.querySelector("#app").innerHTML = `
 
 const button = document.createElement("button");
 button.textContent = "Pick a Random Student";
-button.className =
-  "mt-4 px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600";
+button.className ="mt-4 px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600";
 button.addEventListener("click", () => {
   const randomIndex = Math.floor(Math.random() * student_data.length);
   const selectedStudent = student_data[randomIndex];
